@@ -81,17 +81,16 @@ MEDIA_ROOT = BASE_DIR / 'media'
 
 # Database
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
+#mysql://root:@:/
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
         'ENGINE': 'django.db.backends.mysql',
-'NAME': 'optica_bellavista',
-'USER': 'root',
-'PASSWORD': 'admin',
-'HOST': 'localhost',
-'PORT': '3306',
+        'NAME': 'railway',
+        'USER': 'root',
+        'PASSWORD': 'etagtoTgDvsmnxyEHkFVwjCUXROKqRJC',
+        'HOST': 'hopper.proxy.rlwy.net',
+        'PORT': '18319',
     }
 }
 
