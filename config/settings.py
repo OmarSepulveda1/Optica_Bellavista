@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-r^wkocsgbxfp*+&7g9@*e*8b@*x3-b)w&r9)p!%ump8y)=#v2^
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["*"]
+
 
 
 # Application definition
@@ -83,6 +83,7 @@ MEDIA_ROOT = BASE_DIR / 'media'
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
 #mysql://root:@:/
 
+ALLOWED_HOSTS = ["*"]
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
@@ -132,6 +133,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
 STATIC_URL = 'static/'
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = 'index'
