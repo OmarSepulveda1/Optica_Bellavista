@@ -1,0 +1,27 @@
+{% extends "index.html" %}
+{% block content %}
+
+<h2>Categorías</h2>
+{% if user.is_authenticated %}
+<a href="{% url 'crear_categoria' %}" class="btn btn-secondary mb-3">Nueva categoría</a>
+{% endif %}
+
+<table class="table table-striped">
+  <tr>
+    <th>Nombre</th>
+    <th>Acciones</th>
+  </tr>
+  {% for categoria in categorias %}
+  <tr>
+    <td>{{ categoria.nombre }}</td>
+    <td>
+      {% if user.is_authenticated %}
+      <a href="{% url 'editar_categoria' categoria.id %}" class="btn btn-sm btn-secondary">Editar</a>
+      <a href="{% url 'eliminar_categoria' categoria.id %}" class="btn btn-sm btn-outline-danger">Eliminar</a>
+      {% endif %}
+    </td>
+  </tr>
+  {% endfor %}
+</table>
+
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends "index.html" %}
+{% block content %}
+
+<h2>Detalle del Producto</h2>
+<div class="row">
+  <div class="col-md-6">
+    {% if producto.imagen %}
+      <img src="{{ producto.imagen.url }}" class="img-fluid" alt="{{ producto.nombre }}">
+    {% else %}
+      <div class="bg-secondary d-flex align-items-center justify-content-center" style="height: 400px;">
+        <span class="text-light">Sin imagen</span>
+      </div>
+    {% endif %}
+  </div>
+  <div class="col-md-6">
+    <h3>{{ producto.nombre }}</h3>
+    <p>{{ producto.descripcion }}</p>
+    <p><strong>Precio:</strong> ${{ producto.precio }}</p>
+    <p><strong>Categoría:</strong> {{ producto.categoria.nombre }}</p>
+    <p><strong>Etiquetas:</strong> {% for etiqueta in producto.etiquetas.all %}{{ etiqueta.nombre }}{% if not forloop.last %}, {% endif %}{% endfor %}</p>
+    {% if producto.detalleproducto %}
+      <p><strong>Dimensiones:</strong> {{ producto.detalleproducto.dimensiones }}</p>
+      <p><strong>Peso:</strong> {{ producto.detalleproducto.peso }}</p>
+    {% endif %}
+  </div>
+</div>
+<a href="{% url 'lista_productos' %}" class="btn btn-secondary mt-3">Volver</a>
+
+{% endblock %}

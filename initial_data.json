@@ -1,0 +1,140 @@
+﻿[
+{
+    "model": "tienda.categoria",
+    "pk": 1,
+    "fields": {
+        "nombre": "Lentes de contacto"
+    }
+},
+{
+    "model": "tienda.categoria",
+    "pk": 2,
+    "fields": {
+        "nombre": "lentes ¾pticos"
+    }
+},
+{
+    "model": "tienda.categoria",
+    "pk": 3,
+    "fields": {
+        "nombre": "Lentes de sol"
+    }
+},
+{
+    "model": "tienda.categoria",
+    "pk": 4,
+    "fields": {
+        "nombre": "Accesorios"
+    }
+},
+{
+    "model": "tienda.etiqueta",
+    "pk": 1,
+    "fields": {
+        "nombre": "Polaroid"
+    }
+},
+{
+    "model": "tienda.etiqueta",
+    "pk": 2,
+    "fields": {
+        "nombre": "Grande"
+    }
+},
+{
+    "model": "tienda.etiqueta",
+    "pk": 3,
+    "fields": {
+        "nombre": "Marcos"
+    }
+},
+{
+    "model": "tienda.etiqueta",
+    "pk": 4,
+    "fields": {
+        "nombre": "Ray-Ban"
+    }
+},
+{
+    "model": "tienda.producto",
+    "pk": 1,
+    "fields": {
+        "nombre": "Anteojos de sol Ray Ban",
+        "descripcion": "Anteojos con filtro uv hombre",
+        "precio": "120.00",
+        "categoria": 3,
+        "imagen": "productos/ray-ban_B4ZC4FU.jpeg",
+        "etiquetas": [
+            4
+        ]
+    }
+},
+{
+    "model": "tienda.producto",
+    "pk": 2,
+    "fields": {
+        "nombre": "lentes ¾pticos",
+        "descripcion": "Lentes con filtro azul",
+        "precio": "125.00",
+        "categoria": 2,
+        "imagen": "productos/lentes1_Z5qugMU.png",
+        "etiquetas": [
+            3
+        ]
+    }
+},
+{
+    "model": "tienda.producto",
+    "pk": 3,
+    "fields": {
+        "nombre": "Lentes de contacto Acuvue",
+        "descripcion": "lentes desechables",
+        "precio": "25.00",
+        "categoria": 1,
+        "imagen": "productos/contacto-airoptix_cvYgxDG.png",
+        "etiquetas": []
+    }
+},
+{
+    "model": "tienda.producto",
+    "pk": 4,
+    "fields": {
+        "nombre": "lentes ¾pticos",
+        "descripcion": "lentes para hombre",
+        "precio": "200.00",
+        "categoria": 2,
+        "imagen": "productos/lentes2_D4JRenN.png",
+        "etiquetas": [
+            1
+        ]
+    }
+},
+{
+    "model": "tienda.producto",
+    "pk": 5,
+    "fields": {
+        "nombre": "lentes filtro pantalla",
+        "descripcion": "lentes con filtro azul",
+        "precio": "80.00",
+        "categoria": 2,
+        "imagen": "productos/filtro_azul_08AstFK.png",
+        "etiquetas": [
+            1
+        ]
+    }
+},
+{
+    "model": "tienda.producto",
+    "pk": 6,
+    "fields": {
+        "nombre": "lentes filtro azul",
+        "descripcion": "lentes con filtro cromatico",
+        "precio": "110.00",
+        "categoria": 2,
+        "imagen": "productos/Lentes5_O6zrdwE.png",
+        "etiquetas": [
+            4
+        ]
+    }
+}
+]
