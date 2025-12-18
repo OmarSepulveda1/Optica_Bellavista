@@ -1,2 +1,2 @@
-web: gunicorn optica_bellavista.wsgi
+web: gunicorn config.wsgi --chdir optica_bellavista
     
