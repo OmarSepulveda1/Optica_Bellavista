@@ -102,5 +102,17 @@ STATIC_URL = "/static/"
 STATIC_ROOT = BASE_DIR / "staticfiles"
 STATICFILES_DIRS = [BASE_DIR / "static"]
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+
+# MEDIA: por defecto local (desarrollo)
+USE_CLOUDINARY = os.getenv("CLOUDINARY_CLOUD_NAME") is not None
+
+if USE_CLOUDINARY:
+    # configuración para django-cloudinary-storage (producción con Cloudinary)
+    DEFAULT_FILE_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"
+    # cloudinary settings read from env (no escribir claves aquí)
+else:
+    MEDIA_URL = "/media/"
+    MEDIA_ROOT = BASE_DIR / "media"
+
 LOGIN_REDIRECT_URL = "/"
 LOGOUT_REDIRECT_URL = "/accounts/login/"
