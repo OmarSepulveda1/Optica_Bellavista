@@ -78,15 +78,16 @@ if DATABASE_URL:
     DATABASES = {"default": dj_database_url.parse(DATABASE_URL, conn_max_age=600)}
 else:
     DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.mysql",
-        "NAME": os.getenv("optica_bellavista"),
-        "USER": os.getenv("root"),
-        "PASSWORD": os.getenv("admin"),
-        "HOST": os.getenv("localhost"),
-        "PORT": os.getenv("3306"),
+        "default": {
+            "ENGINE": "django.db.backends.mysql",  
+            "NAME": os.getenv("DB_NAME"),
+            "USER": os.getenv("DB_USER"),
+            "PASSWORD": os.getenv("DB_PASSWORD"),
+            "HOST": os.getenv("DB_HOST", "127.0.0.1"),
+            "PORT": os.getenv("DB_PORT", "3306"),
+            "OPTIONS": {"init_command": "SET sql_mode='STRICT_TRANS_TABLES'"},
+        }
     }
-}
 
 # Security recommended headers
 SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
