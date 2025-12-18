@@ -23,8 +23,7 @@ load_dotenv(BASE_DIR / ".env")
 # Seguridad
 SECRET_KEY = os.getenv("SECRET_KEY", "dev-secret-key")
 DEBUG = os.getenv("DEBUG", "False") == "True"
-ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS", "127.0.0.1,localhost").split(",")
-
+ALLOWED_HOSTS = ["*"]
 
 # INSTALLED_APPS: definir primero
 INSTALLED_APPS = [
