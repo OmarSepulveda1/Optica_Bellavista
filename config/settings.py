@@ -34,12 +34,9 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "tienda",
-      # 'cloudinary', 'cloudinary_storage',
+    'cloudinary', 
+    'cloudinary_storage',
 ]
-
-
-if os.getenv("CLOUDINARY_CLOUD_NAME") and os.getenv("CLOUDINARY_API_KEY") and os.getenv("CLOUDINARY_API_SECRET"):
-    INSTALLED_APPS += ["cloudinary", "cloudinary_storage"]
 
 
 MIDDLEWARE = [
