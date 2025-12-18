@@ -1,2 +1,2 @@
-web: gunicorn config.wsgi --chdir optica_bellavista
+web: gunicorn optica_bellavista.wsgi:application --bind 0.0.0.0:$PORT
     
