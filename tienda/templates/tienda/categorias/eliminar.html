@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>Eliminar categoría</h2>
+<p>¿Deseas eliminar "{{ categoria }}"?</p>
+
+<form method="post">
+  {% csrf_token %}
+  <button type="submit" class="btn btn-outline-danger">Eliminar</button>
+  <a href="{% url 'tienda:lista_categorias' %}" class="btn btn-outline-secondary">Cancelar</a>
+</form>
+
+{% endblock %}

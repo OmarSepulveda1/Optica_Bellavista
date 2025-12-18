@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2 class="mb-3">Categorías</h2>
+
+<form method="get" class="row mb-3">
+  <div class="col-md-4">
+    <input type="text" name="q" class="form-control" placeholder="Buscar por nombre"
+           value="{{ request.GET.q }}">
+  </div>
+
+  <div class="col-md-2">
+    <button class="btn btn-dark w-100">Filtrar</button>
+  </div>
+
+  {% if perms.tienda.add_categoria %}
+  <div class="col-md-2">
+    <a href="{% url 'tienda:crear_categoria' %}" class="btn btn-success w-100">
+      + Nueva
+    </a>
+  </div>
+  {% endif %}
+</form>
+
+<table class="table table-bordered bg-white">
+  <thead class="table-dark">
+    <tr>
+      <th>Nombre</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    {% for categoria in categorias %}
+    <tr>
+      <td>{{ categoria.nombre }}</td>
+      <td>
+        {% if perms.tienda.change_categoria %}
+        <a class="btn btn-warning btn-sm"
+           href="{% url 'tienda:editar_categoria' categoria.id %}">
+          Editar
+        </a>
+        {% endif %}
+
+        {% if perms.tienda.delete_categoria %}
+        <a class="btn btn-danger btn-sm"
+           href="{% url 'tienda:eliminar_categoria' categoria.id %}">
+          Eliminar
+        </a>
+        {% endif %}
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

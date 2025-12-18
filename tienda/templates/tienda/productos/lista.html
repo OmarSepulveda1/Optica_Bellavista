@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2 class="mb-3">Productos</h2>
+
+<form method="get" class="row mb-3">
+  <div class="col-md-4">
+    <input type="text" name="nombre" class="form-control" placeholder="Buscar por nombre"
+           value="{{ request.GET.nombre }}">
+  </div>
+
+  <div class="col-md-4">
+    <select name="categoria" class="form-select">
+      <option value="">Todas las categorías</option>
+      {% for c in categorias %}
+        <option value="{{ c.id }}"
+          {% if request.GET.categoria == c.id|stringformat:"s" %}selected{% endif %}>
+          {{ c.nombre }}
+        </option>
+      {% endfor %}
+    </select>
+  </div>
+
+  <div class="col-md-2">
+    <button class="btn btn-dark w-100">Filtrar</button>
+  </div>
+
+  {% if perms.tienda.add_producto %}
+  <div class="col-md-2">
+    <a href="{% url 'tienda:crear_producto' %}" class="btn btn-success w-100">
+      + Nuevo
+    </a>
+  </div>
+  {% endif %}
+</form>
+<div class="product-grid">
+  {% for producto in productos %}
+  <div class="product-card">
+    <div class="product-card-img-container">
+      {% if producto.imagen %}
+        <img src="{{ producto.imagen.url }}" alt="Imagen de {{ producto.nombre }}" class="product-card-img">
+      {% else %}
+        <div class="d-flex align-items-center justify-content-center h-100 bg-light">
+          <span class="text-muted">Sin imagen</span>
+        </div>
+      {% endif %}
+    </div>
+    <div class="product-card-body">
+      <h5 class="product-card-title">{{ producto.nombre }}</h5>
+      <p class="product-card-category">{{ producto.categoria }}</p>
+      <p class="product-card-price">${{ producto.precio|floatformat:2 }}</p>
+      <div class="product-card-actions">
+        <a class="btn btn-info" href="{% url 'tienda:detalle_producto' producto.id %}">
+          Ver
+        </a>
+        {% if perms.tienda.change_producto %}
+        <a class="btn btn-warning" href="{% url 'tienda:editar_producto' producto.id %}">
+          Editar
+        </a>
+        {% endif %}
+        {% if perms.tienda.delete_producto %}
+        <a class="btn btn-danger" href="{% url 'tienda:eliminar_producto' producto.id %}">
+          Eliminar
+        </a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  {% empty %}
+    <div class="col">
+        <p class="text-center">No hay productos que coincidan con la búsqueda.</p>
+    </div>
+  {% endfor %}
+</div>
+{% endblock %}

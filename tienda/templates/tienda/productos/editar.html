@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Editar Producto</h2>
+
+{% if form.instance.imagen %}
+  <div class="mb-3">
+    <p class="form-label">Imagen actual:</p>
+    <img src="{{ form.instance.imagen.url }}" alt="Imagen de {{ form.instance.nombre }}" class="img-thumbnail" style="max-width: 200px; max-height: 200px;">
+  </div>
+{% endif %}
+
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Guardar</button>
+    <a href="{% url 'tienda:lista_productos' %}" class="btn btn-secondary">
+      Cancelar
+    </a>
+</form>
+{% endblock %}
